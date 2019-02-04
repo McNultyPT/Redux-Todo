@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-function Todo() {
+const Todo = props => {
     return (
         <h1>Hello</h1>
     );
 }
 
-export default Todo;
+export default connect(mapStatetoProps, {})(Todo);

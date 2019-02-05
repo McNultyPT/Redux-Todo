@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { newTodo } from '../actions';
+
 const Todo = props => {
     return (
        <div>
@@ -15,5 +17,5 @@ const mapStatetoProps = state => {
     }
 }
 
-export default connect(mapStatetoProps, {})(Todo);
+export default connect(mapStatetoProps, {newTodo})(Todo);
 

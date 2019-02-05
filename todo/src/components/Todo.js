@@ -47,6 +47,7 @@ class Todo extends React.Component {
                 <div className='inputContainer'> 
                     <input
                         type='text'
+                        placeholder='Add a todo task'
                         value={this.state.newTodo}
                         onChange={this.handleChanges}
                     />

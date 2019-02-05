@@ -28,7 +28,7 @@ class Todo extends React.Component {
                 <div>
                     {this.props.todos.map((todo, index) => (
                         <h3
-                            className='completed'
+                            className={todo.completed ? 'completed' : ''}
                             key={index}
                             onClick={e => this.toggleCompleted(e, index)}
                         >

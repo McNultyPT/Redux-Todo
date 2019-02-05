@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addNewTodo } from '../actions';
+import { addNewTodo, toggleCompleted } from '../actions';
 
 class Todo extends React.Component {
     state = {
@@ -17,6 +17,11 @@ class Todo extends React.Component {
         this.props.addNewTodo(this.state.newTodo);
     }
 
+    toggleCompleted = (e, index) => {
+        e.preventDefault();
+        this.props.toggleCompleted(index);
+    }
+
     render() {
         return (
             <div>
@@ -25,6 +30,7 @@ class Todo extends React.Component {
                         <h3
                             className='completed'
                             key={index}
+                            onClick={e => this.toggleCompleted(e, index)}
                         >
                         {todo.value}
                         </h3> 
@@ -47,5 +53,5 @@ const mapStatetoProps = state => {
     }
 }
 
-export default connect(mapStatetoProps, {addNewTodo})(Todo);
+export default connect(mapStatetoProps, { addNewTodo, toggleCompleted })(Todo);
 

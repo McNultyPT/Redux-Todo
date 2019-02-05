@@ -29,25 +29,30 @@ class Todo extends React.Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    {this.props.todos.map((todo, index) => (
-                        <h3
-                            className={todo.completed ? 'completed' : ''}
-                            key={index}
-                            onClick={e => this.toggleCompleted(e, index)}
-                        >
-                        {todo.value}
-                        </h3> 
-                    ))}
+            <div className='todoContainer'>
+                <div className='listContainer'>
+                    <h2>Todo List</h2>
+                    <div className='todoItems'>
+                        {this.props.todos.map((todo, index) => (
+                            <ul
+                                className={todo.completed ? 'completed' : ''}
+                                key={index}
+                                onClick={e => this.toggleCompleted(e, index)}
+                            >
+                            {todo.value}
+                            </ul> 
+                        ))}
+                    </div>
+                </div> 
+                <div className='inputContainer'> 
+                    <input
+                        type='text'
+                        value={this.state.newTodo}
+                        onChange={this.handleChanges}
+                    />
+                    <button onClick={this.addTodo}>Add Todo</button>
+                    <button onClick={this.clearCompleted}>Clear Completed</button>
                 </div>
-                <input
-                    type='text'
-                    value={this.state.newTodo}
-                    onChange={this.handleChanges}
-                />
-                <button onClick={this.addTodo}>Add Todo</button>
-                <button onClick={this.clearCompleted}>Clear Completed</button>
             </div>
         );
     }

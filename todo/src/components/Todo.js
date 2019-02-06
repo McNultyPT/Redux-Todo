@@ -15,6 +15,7 @@ class Todo extends React.Component {
     addTodo = e => {
         e.preventDefault();
         this.props.addNewTodo(this.state.newTodo);
+        this.setState({ newTodo: ''});
     }
 
     toggleCompleted = (e, index) => {
